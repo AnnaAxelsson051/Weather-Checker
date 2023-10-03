@@ -58,11 +58,11 @@ app.MapGet("/weather", () =>
   
         });
 
-app.MapGet("/healthcheck", () =>
-{
+           app.MapGet("/healthcheck", () =>
+           {
+           return "OK";
+           });
 
-});
-
-app.Run();
+           app.Run();
 
 
