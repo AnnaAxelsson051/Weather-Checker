@@ -32,6 +32,16 @@ namespace Weather.Tests
             Assert.Equal(expectedCityName, cityName);
 
         }
+
+        [Fact]
+        public async Task Weather_Healthcheck_Returns_Ok()
+        {
+            string expectedStatusCode = "OK";
+            var response = await _client.GetAsync("http://localhost:7260/healthcheck");
+            string actual = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(expectedStatusCode, actual);
+        }
     }
 }
 

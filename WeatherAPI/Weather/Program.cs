@@ -58,6 +58,11 @@ app.MapGet("/weather", () =>
   
         });
 
-        app.Run();
+app.MapGet("/healthcheck", () =>
+{
+
+});
+
+app.Run();
 
 
