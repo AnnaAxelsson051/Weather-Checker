@@ -1,4 +1,6 @@
-﻿namespace Weather;
+﻿using System.Diagnostics.Metrics;
+
+namespace Weather;
 
 public class Program
 {
@@ -28,6 +30,13 @@ public class Program
 
 
         app.MapControllers();
+
+        
+        app.MapGet("/weather", () =>
+        {
+            
+
+        });
 
         app.Run();
     }
