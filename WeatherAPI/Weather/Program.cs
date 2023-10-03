@@ -34,8 +34,7 @@ public class Program
         
         app.MapGet("/weather", () =>
         {
-            
-
+            var client = new HttpClient();
         });
 
         app.Run();
