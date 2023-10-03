@@ -42,7 +42,20 @@ var counter = app.Services.GetRequiredService<ApiHitTracker>();
 app.MapGet("/weather", () =>
         {
             var client = new HttpClient();
-             
+       var apiKey = configuration["WeatherAPIKey"];
+
+       if (string.IsNullOrEmpty(apiKey))
+       {
+           apiKey = "fe248f10eb2041e3a47155604230310";
+       }
+
+       var baseUrl = "http://api.weatherapi.com/v1/current.json?key=";
+
+            var response = client.GetAsync($"{baseUrl}{apiKey}&q=stockholm").Result;
+            var content = response.Content.ReadAsStringAsync().Result;
+           
+            return Results.Content(content, contentType: "application/json");
+  
         });
 
         app.Run();
