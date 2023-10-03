@@ -1,43 +1,50 @@
-﻿using System.Diagnostics.Metrics;
+﻿using Weather;
 
-namespace Weather;
+var builder = WebApplication.CreateBuilder(args);
 
-public class Program
+builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
 {
-    public static void Main(string[] args)
-    {
-        var builder = WebApplication.CreateBuilder(args);
+    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
 
-        // Add services to the container.
+var configuration = new ConfigurationBuilder()
+    .SetBasePath(builder.Environment.ContentRootPath)
+    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+    .AddEnvironmentVariables()
+    .Build();
 
-        builder.Services.AddControllers();
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+// Add services to the container.
+builder.Services.AddAuthorization();
+builder.Services.AddSingleton<ApiHitTracker>(); 
 
-        var app = builder.Build();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-        // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
+var app = builder.Build();
 
-        app.UseHttpsRedirection();
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
-        app.UseAuthorization();
+app.UseCors("corsapp");
+
+app.UseRouting();
+
+app.UseAuthorization();
+
+var serviceProvider = app.Services;
+var counter = app.Services.GetRequiredService<ApiHitTracker>();
 
 
-        app.MapControllers();
-
-        
-        app.MapGet("/weather", () =>
+app.MapGet("/weather", () =>
         {
             var client = new HttpClient();
+             
         });
 
         app.Run();
-    }
-}
+
 
