@@ -38,26 +38,27 @@ app.UseAuthorization();
 var serviceProvider = app.Services;
 var counter = app.Services.GetRequiredService<ApiHitTracker>();
 
+// Fetches and returns the current weather data for the specified city from the Weather API,
+// while also incrementing the request counter
+
 app.MapGet("/weather/{city}", (string city) =>
 {
     var client = new HttpClient();
-
     var apiKey = configuration["WeatherAPIKey"];
-
     if (string.IsNullOrEmpty(apiKey))
     {
         apiKey = "fe248f10eb2041e3a47155604230310";
     }
-
     var baseUrl = "http://api.weatherapi.com/v1/current.json?key=";
-
     var response = client.GetAsync($"{baseUrl}{apiKey}&q={city}").Result;
     var content = response.Content.ReadAsStringAsync().Result;
-
     counter.IncrementCount();
 
     return Results.Content(content, contentType: "application/json");
 });
+
+// fetches and returns the current weather data for Stockholm from the Weather API,
+// while also incrementing the request counter
 
 app.MapGet("/weather", () =>
         {
@@ -80,11 +81,15 @@ app.MapGet("/weather", () =>
   
             });
 
+           // Increments the request counter and returns a status of "OK"
+
            app.MapGet("/healthcheck", () =>
            {
                counter.IncrementCount();
                return "OK";
            });
+
+           // Tetrieves and returns the current request count
 
            app.MapGet("/counter", () =>
            {
