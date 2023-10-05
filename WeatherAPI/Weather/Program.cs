@@ -38,6 +38,26 @@ app.UseAuthorization();
 var serviceProvider = app.Services;
 var counter = app.Services.GetRequiredService<ApiHitTracker>();
 
+app.MapGet("/weather/{city}", (string city) =>
+{
+    var client = new HttpClient();
+
+    var apiKey = configuration["WeatherAPIKey"];
+
+    if (string.IsNullOrEmpty(apiKey))
+    {
+        apiKey = "fe248f10eb2041e3a47155604230310";
+    }
+
+    var baseUrl = "http://api.weatherapi.com/v1/current.json?key=";
+
+    var response = client.GetAsync($"{baseUrl}{apiKey}&q={city}").Result;
+    var content = response.Content.ReadAsStringAsync().Result;
+
+    counter.IncrementCount();
+
+    return Results.Content(content, contentType: "application/json");
+});
 
 app.MapGet("/weather", () =>
         {
