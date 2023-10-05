@@ -56,11 +56,16 @@ app.MapGet("/weather", () =>
            
             return Results.Content(content, contentType: "application/json");
   
-        });
+            });
 
            app.MapGet("/healthcheck", () =>
            {
            return "OK";
+           });
+
+           app.MapGet("/counter", () =>
+           {
+
            });
 
            app.Run();
