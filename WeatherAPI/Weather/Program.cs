@@ -53,19 +53,24 @@ app.MapGet("/weather", () =>
 
             var response = client.GetAsync($"{baseUrl}{apiKey}&q=stockholm").Result;
             var content = response.Content.ReadAsStringAsync().Result;
-           
+
+            counter.IncrementCount();
+
             return Results.Content(content, contentType: "application/json");
   
             });
 
            app.MapGet("/healthcheck", () =>
            {
-           return "OK";
+               counter.IncrementCount();
+               return "OK";
            });
 
            app.MapGet("/counter", () =>
            {
-
+               var count = counter.GetCount();
+               var result = new { Count = count };
+               return Results.Json(result, contentType: "application/json");
            });
 
            app.Run();
