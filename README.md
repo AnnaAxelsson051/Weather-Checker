@@ -37,3 +37,5 @@ This organized approach, utilizing priorities and a Test-Driven Development meth
 
 - I initially added a navigation section with responsively for mobile along with styling.
 - I then added an intro section with styling, to provide the user with an explanation of what the app does
+- I then added carousel component
+- I then added arrowbuttons component to navigate the carousel
