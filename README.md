@@ -42,3 +42,4 @@ This organized approach, utilizing priorities and a Test-Driven Development meth
 - I then added an intro section with styling, to provide the user with an explanation of what the app does
 - I then added carousel component
 - I then added arrowbuttons component to navigate the carousel
+- I then added a component to display the actual weather
