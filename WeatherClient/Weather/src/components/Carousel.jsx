@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from "react";
+import WeatherDisplay from "./WeatherDisplay";
 import styled from "styled-components";
+import ArrowButtons from "./ArrowButtons";
 
 
 const Carousel = ({ weatherData }) => {
@@ -24,10 +26,15 @@ const Carousel = ({ weatherData }) => {
         {weatherData.map((item, index) => {
           return (
             <CarouselItem key={index}>
+   
             </CarouselItem>
           );
         })}
       </CarouselContainer>
+       <ArrowButtons
+        handleLeftClick={handleLeftClick}
+        handleRightClick={handleRightClick}
+      />
     </>
   );
 };
@@ -68,3 +75,4 @@ const CarouselItem = styled.div`
     align-items: left;
   }
 `;
+
