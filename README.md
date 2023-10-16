@@ -4,6 +4,8 @@
 
 This project offers a comprehensive solution focused on retrieving weather data, underpinned by an agile work methodology, Test-Driven Development (TDD), and a seamless CI/CD integration with Azure. The platform hosts an API tailored to fetch real-time weather conditions such as temperature, humidity, and wind for a user selected city. A React client interfaces with the Weather API, allowing end-users to not only extract current weather metrics for Stockholm but also set and recall a favorite city throughout the app's operational session. For system owners, this infrastructure provides the ability to constantly monitor the API's health status and gather analytical data, specifically the count of API calls made since the platform's inception.
 
+---
+
 ## Technologies and methodology
 
 - ASP.NET Core
@@ -14,12 +16,13 @@ This project offers a comprehensive solution focused on retrieving weather data,
 - TDD
 - Azure
 
+---
 
 ## Documentation
 
 During the construction of this application, I followed these steps:
 
-### Backend and testing workflow
+### Workflow for backend and testing
 
 - I began by adding a test to ensure the API call functionality was working correctly.
 - Next, I initialized the /weather endpoint. When accessed via a GET request, this endpoint creates a new HttpClient instance but initially neither processed nor returned any response.
@@ -33,7 +36,7 @@ During the construction of this application, I followed these steps:
 
 This organized approach, utilizing priorities and a Test-Driven Development methodology, ensured each component was rigorously checked before its respective implementation.
 
-### Frontend workflow
+### Workflow for frontend
 
 - I initially added a navigation section with responsively for mobile along with styling.
 - I then added an intro section with styling, to provide the user with an explanation of what the app does
