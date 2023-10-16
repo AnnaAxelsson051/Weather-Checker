@@ -26,7 +26,7 @@ const Carousel = ({ weatherData }) => {
         {weatherData.map((item, index) => {
           return (
             <CarouselItem key={index}>
-   
+              <WeatherDisplay city={item}/>
             </CarouselItem>
           );
         })}
