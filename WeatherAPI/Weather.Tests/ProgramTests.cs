@@ -40,6 +40,22 @@ namespace Weather.Tests
 
         }
 
+        // Sends a GET request to the "/weather/oslo" endpoint
+        // and asserts that the returned weather data is for the city "Oslo"
+
+        [Fact]
+        public async Task Weather_Returns_OsloWeatherData()
+        {
+            var expectedCityName = "Oslo";
+            var response = await _client.GetAsync("http://localhost:7260/weather/oslo");
+            var content = await response.Content.ReadAsStringAsync();
+            var parsedResponse = JObject.Parse(content);
+            var locationData = parsedResponse["location"];
+            var cityName = locationData?["name"]?.ToString();
+
+            Assert.Equal(expectedCityName, cityName);
+        }
+
         // Checks the /healthcheck endpoint and asserts
         // that it returns the "OK" status
 
