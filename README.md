@@ -2,6 +2,8 @@
 
 ![User Interface](user-interface.png)
 
+---
+
 ## Description
 
 This is a responsive weather application built with ASP.NET Core and React. It allows users to enter a desired city and view weather data, including temperature, wind speed, direction, and humidity. Users can also recall a favorite city during the app's operational session. For system owners, the infrastructure offers continuous monitoring of the API's health status. It also provides analytical data, specifically tracking the count of API calls made since the platform's launch. 
