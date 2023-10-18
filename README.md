@@ -43,3 +43,5 @@ This organized approach, utilizing priorities and a Test-Driven Development meth
 - I then added carousel component
 - I then added arrowbuttons component to navigate the carousel
 - I then added a component to display the actual weather
+- Added component for adding cities
+- Add functionality for API health check and status
