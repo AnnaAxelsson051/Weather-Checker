@@ -6,7 +6,7 @@ const IntroSection = () => {
       <StyledIntroSection>
         <StyledContainer>
           <p>
-          Check out the forecast for your city. This service displays Temperature, wind speed and direction as well as humidity.
+          Check out the forecast for your desired city. This service displays Temperature, wind speed and direction as well as humidity.
           </p>
         </StyledContainer>
       </StyledIntroSection>
