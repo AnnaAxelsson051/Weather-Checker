@@ -25,7 +25,7 @@ This project utilized an agile work methodology, Test-Driven Development (TDD), 
 
 ---
 
-## Documentation
+## Documentation and Structure
 
 During the construction of this application, I followed these steps:
 
@@ -53,19 +53,7 @@ This organized approach, utilizing priorities and a Test-Driven Development meth
 - Implemented a component allowing users to add their desired cities.
 - Enhanced the system with functionality to monitor API health and status.
 
----
 
-Left
-
-Code:
-
-- Sätta upp och använda en enklare CI/CD-pipeline med Azure
-- För att sätta upp en pipeline för att deploya API:et så måste React-klienten gå att peka både mot den deployade versionen av API:et och lokal version om man önskar (för utveckling)
-
-Readme:
-
-- En beskrivning av er pipeline
-- Inspelad presentation/demo, cirka 5-10 minuter
 
 
 
