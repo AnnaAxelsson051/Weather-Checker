@@ -38,7 +38,7 @@ During the construction of this application, I followed these steps:
 - I added another failing test to ensure the /healthcheck endpoint returned an "OK" status code. At this stage, the /healthcheck GET request was established but provided an empty response.
 - I then modified the /healthcheck endpoint to consistently return “OK”, which caused the aforementioned test to pass.
 - To enhance the application's robustness, I incorporated a test to guarantee the /healthcheck endpoint returns an HTTP status code of 200 (OK) when accessed.
-- I then added a failing test procedure that, in an asynchronous manner, retrieves the counter's value from the designated URL and expects it as a JSON object. Concurrently, I drafted an unimplemented /counter endpoint.
+- I then added a failing test that, in an asynchronous manner, retrieves the counter's value from the designated URL and expects it as a JSON object. Concurrently, I drafted an unimplemented /counter endpoint.
 - Finally, I implemented the counter endpoint and its associated functionalities, resulting in the preceding test's success.
 
 This organized approach, utilizing priorities and a Test-Driven Development methodology, ensured each component was rigorously checked before its respective implementation.
@@ -53,6 +53,19 @@ This organized approach, utilizing priorities and a Test-Driven Development meth
 - Implemented a component allowing users to add their desired cities.
 - Enhanced the system with functionality to monitor API health and status.
 
+---
+
+Left
+
+Code:
+
+- Sätta upp och använda en enklare CI/CD-pipeline med Azure
+- För att sätta upp en pipeline för att deploya API:et så måste React-klienten gå att peka både mot den deployade versionen av API:et och lokal version om man önskar (för utveckling)
+
+Readme:
+
+- En beskrivning av er pipeline
+- Inspelad presentation/demo, cirka 5-10 minuter
 
 
 
